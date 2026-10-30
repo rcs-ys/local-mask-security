@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "paths": {
+      "@local-mask-security/patterns-ja": ["../patterns-ja/dist/index.d.ts"],
+      "@local-mask-security/patterns-ja/names": ["../patterns-ja/dist/names/index.d.ts"],
+      "@local-mask-security/patterns-ja/address": [
+        "../patterns-ja/dist/address-patterns.d.ts"
+      ]
+    }
+  },
+  "include": ["src", "tests"]
+}

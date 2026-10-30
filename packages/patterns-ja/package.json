@@ -1,0 +1,45 @@
+{
+  "name": "@local-mask-security/patterns-ja",
+  "version": "0.1.0",
+  "description": "日本向け PII 正規表現パターン",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./patterns": {
+      "types": "./dist/patterns.d.ts",
+      "import": "./dist/patterns.js",
+      "default": "./dist/patterns.js"
+    },
+    "./names": {
+      "types": "./dist/names/index.d.ts",
+      "import": "./dist/names/index.js",
+      "default": "./dist/names/index.js"
+    },
+    "./address": {
+      "types": "./dist/address-patterns.d.ts",
+      "import": "./dist/address-patterns.js",
+      "default": "./dist/address-patterns.js"
+    }
+  },
+  "files": [
+    "dist",
+    "data"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build:names": "node ../../scripts/build-ja-name-dictionary.mjs",
+    "build": "npm run build:names && tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
+}

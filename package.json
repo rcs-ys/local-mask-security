@@ -1,0 +1,30 @@
+{
+  "name": "local-mask-security",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:names": "node scripts/build-ja-name-dictionary.mjs",
+    "build": "npm run build:names && npm run build -w @local-mask-security/patterns-ja && npm run build -w @local-mask-security/core && npm run build -w @local-mask-security/react && npm run build -w @local-mask-security/nlp-node",
+    "build:example": "npm run build && npm run build -w example-next",
+    "dev:example": "npm run dev -w example-next",
+    "test": "npm run test -w @local-mask-security/core",
+    "typecheck": "npm run typecheck -w @local-mask-security/patterns-ja && npm run typecheck -w @local-mask-security/core && npm run typecheck -w @local-mask-security/react && npm run typecheck -w @local-mask-security/nlp-node"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "postcss": "^8.5.32"
+  },
+  "overrides": {
+    "postcss": "^8.5.32",
+    "next": {
+      "postcss": "^8.5.32"
+    },
+    "esbuild": "^0.28.2"
+  }
+}

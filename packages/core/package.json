@@ -1,0 +1,51 @@
+{
+  "name": "@local-mask-security/core",
+  "version": "0.1.0",
+  "description": "PII マスク / アンマスクエンジン（コア）",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./ja-names": {
+      "types": "./dist/ja-names.d.ts",
+      "import": "./dist/ja-names.js",
+      "require": "./dist/ja-names.cjs"
+    },
+    "./ja-names/client": {
+      "types": "./dist/ja-names-client.d.ts",
+      "import": "./dist/ja-names-client.js",
+      "require": "./dist/ja-names-client.cjs"
+    },
+    "./ja-pii": {
+      "types": "./dist/ja-pii.d.ts",
+      "import": "./dist/ja-pii.js",
+      "require": "./dist/ja-pii.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup src/index.ts src/ja-names.ts src/ja-names-client.ts src/ja-pii.ts --format cjs,esm --dts --clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@local-mask-security/patterns-ja": "0.1.0",
+    "@noble/ciphers": "^1.2.1",
+    "@noble/hashes": "^1.7.1"
+  },
+  "devDependencies": {
+    "tsup": "^9.0.0",
+    "typescript": "^5.8.2",
+    "vitest": "^5.0.5"
+  }
+}

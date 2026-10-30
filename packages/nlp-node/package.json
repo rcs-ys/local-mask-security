@@ -1,0 +1,31 @@
+{
+  "name": "@local-mask-security/nlp-node",
+  "version": "0.1.0",
+  "description": "Node 向け NLP 検出器（ヒューリスティック拡張 / 将来 transformers 差し替え）",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external @local-mask-security/core",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@local-mask-security/core": "0.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^9.0.0",
+    "typescript": "^5.8.2"
+  }
+}

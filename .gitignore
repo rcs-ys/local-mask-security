@@ -3,3 +3,4 @@ dist/
 *.tsbuildinfo
 coverage/
 docs/data/
+apps/example-next/.next/
